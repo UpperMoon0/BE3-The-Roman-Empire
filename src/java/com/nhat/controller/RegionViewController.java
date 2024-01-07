@@ -68,8 +68,10 @@ public class RegionViewController extends HttpServlet {
         RequestDispatcher rd;
         if ("emperor".equals(session.getAttribute("role"))) {
             rd = request.getRequestDispatcher("empWorld.jsp");
-        } else {
+        } else if ("consultant".equals(session.getAttribute("role"))) {
             rd = request.getRequestDispatcher("consWorld.jsp");
+        } else {
+            rd = request.getRequestDispatcher("login.jsp");
         }
         
         rd.forward(request, response);

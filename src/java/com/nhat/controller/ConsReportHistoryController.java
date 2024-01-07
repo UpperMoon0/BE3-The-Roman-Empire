@@ -1,6 +1,7 @@
 package com.nhat.controller;
 
 import com.nhat.dao.ReportDAO;
+import com.nhat.dao.ReplyDAO;
 import com.nhat.util.ViewUtil;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import model.Report;
+import model.Reply;
 
 public class ConsReportHistoryController extends HttpServlet {
 
@@ -26,9 +28,15 @@ public class ConsReportHistoryController extends HttpServlet {
             ReportDAO reportDAO = new ReportDAO();
             Report selectedReport = reportDAO.getReportById(selectedReportId);
             System.out.println("selectedReportId " + selectedReportId + " selectedReport " + selectedReport);
-            
-            // Update the request attribute with the selected report
+
+            // Retrieve the reply for the selected report from the database
+            ReplyDAO replyDAO = new ReplyDAO();
+            Reply replyForReport = replyDAO.getReplyByReportId(selectedReportId);
+            System.out.println("replyForReport " + replyForReport);
+
+            // Update the request attributes with the selected report and reply
             request.setAttribute("selectedReport", selectedReport);
+            request.setAttribute("replyForReport", replyForReport);
         }
 
         // Use the utility method to update the list of reports for the current consultant

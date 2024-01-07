@@ -36,7 +36,7 @@ public class ReplyDAO {
 
     // Method to get a reply by ID
     public Reply getReplyById(int replyId) {
-        String query = "SELECT * FROM replies WHERE id = ?";
+        String query = "SELECT * FROM reply WHERE id = ?";
         
         try (
             Connection connection = DatabaseUtil.getConnection();
@@ -59,7 +59,7 @@ public class ReplyDAO {
     // Method to get all replies with a given consultantId
     public List<Reply> getAllRepliesByConsultantId(int consultantId) {
         List<Reply> replies = new ArrayList<>();
-        String query = "SELECT * FROM replies WHERE consultant_id = ?";
+        String query = "SELECT * FROM reply WHERE consultant_id = ?";
         
         try (
             Connection connection = DatabaseUtil.getConnection();
@@ -96,5 +96,27 @@ public class ReplyDAO {
     private void handleSQLException(SQLException ex, String message) {
         Logger.getLogger(ReplyDAO.class.getName()).log(Level.SEVERE, message, ex);
         // You can throw a custom exception or handle it as needed
+    }
+    
+    // Method to get a reply by Report ID
+    public Reply getReplyByReportId(int reportId) {
+        String query = "SELECT * FROM reply WHERE report_id = ?";
+
+        try (
+            Connection connection = DatabaseUtil.getConnection();
+            PreparedStatement statement = connection.prepareStatement(query)
+        ) {
+            statement.setInt(1, reportId);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return extractReplyFromResultSet(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex, "Error getting reply by Report ID");
+        }
+
+        return null; // Return null if no reply found with the given Report ID
     }
 }

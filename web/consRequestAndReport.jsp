@@ -54,8 +54,8 @@
                     rDAO.updateDeliveredDate(requestId, selectedRequest.getDeliveredDate());
                 }
                 
-                // Display the request details
-                if (selectedRequest != null) {
+                // Display the request details only if a request is selected and a region is associated with it
+                if (selectedRequest != null && selectedRequest.getRegionId() > 0) {
             %>
                     <h3>Request Details</h3>
                     <!-- Existing code for displaying request details -->
@@ -71,8 +71,8 @@
         <!-- Create a report for this request -->
         <div>
             <%
-                // Show the "Create a report for this request" section only if a request is selected
-                if (selectedRequest != null) {
+                // Show the "Create a report for this request" section only if a request is selected and a region is associated with it
+                if (selectedRequest != null && selectedRequest.getRegionId() > 0) {
             %>
                     <h3>Create a report for this request</h3>
                     <form action="ConsReport" method="post">

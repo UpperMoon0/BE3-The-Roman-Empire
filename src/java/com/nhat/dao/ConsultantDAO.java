@@ -48,39 +48,38 @@ public class ConsultantDAO {
    }
 
    /**
-    * This method inserts a new consultant into the Consultant table. It takes a Consultant
-    * object as a parameter and sets its fields as values for the query. It executes the query
-    * and prints a message if the insertion is successful.
-    *
-    * @param consultant the Consultant object to be inserted
-    */
-   public void insertConsultant(Consultant consultant) {
-       try (Connection connection = DatabaseUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Consultant (username, password, name, age, address, term_num, salary, noble, kingdom_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+     * This method inserts a new consultant into the Consultant table. It takes a Consultant
+     * object as a parameter and sets its fields as values for the query. It executes the query
+     * and prints a message if the insertion is successful.
+     *
+     * @param consultant the Consultant object to be inserted
+     */
+    public void insertConsultant(Consultant consultant) {
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Consultant (username, password, name, age, address, term_num, salary, noble, region_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
 
-           preparedStatement.setString(1, consultant.getUsername());
-           preparedStatement.setString(2, consultant.getPassword());
-           preparedStatement.setString(3, consultant.getName());
-           preparedStatement.setInt(4, consultant.getAge());
-           preparedStatement.setString(5, consultant.getAddress());
-           preparedStatement.setInt(6, consultant.getTermNum());
-           preparedStatement.setInt(7, consultant.getSalary());
-           preparedStatement.setBoolean(8, consultant.isNoble());
-           preparedStatement.setInt(9, consultant.getKingdomId());
+            preparedStatement.setString(1, consultant.getUsername());
+            preparedStatement.setString(2, consultant.getPassword());
+            preparedStatement.setString(3, consultant.getName());
+            preparedStatement.setInt(4, consultant.getAge());
+            preparedStatement.setString(5, consultant.getAddress());
+            preparedStatement.setInt(6, consultant.getTermNum());
+            preparedStatement.setInt(7, consultant.getSalary());
+            preparedStatement.setBoolean(8, consultant.isNoble());
+            preparedStatement.setInt(9, consultant.getRegionId());
 
-           int rows = preparedStatement.executeUpdate();
+            int rows = preparedStatement.executeUpdate();
 
-           if (rows > 0) {
-               System.out.println("A new consultant was inserted successfully!");
-           }
+            if (rows > 0) {
+                System.out.println("A new consultant was inserted successfully!");
+            }
 
-       } catch (SQLException e) {
-           // If any exception occurs, print the stack trace
-           e.printStackTrace();
-       }
-   }
+        } catch (SQLException e) {
+            // If any exception occurs, print the stack trace
+            e.printStackTrace();
+        }
+    }
 
-    
     /**
      * Retrieves all consultants from the Consultant table and returns a list of Consultant objects.
      *
@@ -105,10 +104,10 @@ public class ConsultantDAO {
                 int termNum = resultSet.getInt("term_num");
                 int salary = resultSet.getInt("salary");
                 boolean noble = resultSet.getBoolean("noble");
-                int kingdomId = resultSet.getInt("kingdom_id");
+                int regionId = resultSet.getInt("region_id");
 
                 // Create a new Consultant object and add it to the list
-                Consultant consultant = new Consultant(id, username, password, name, age, address, termNum, salary, noble, kingdomId);
+                Consultant consultant = new Consultant(id, username, password, name, age, address, termNum, salary, noble, regionId);
                 consultants.add(consultant);
             }
 
@@ -173,10 +172,10 @@ public class ConsultantDAO {
                    int termNum = resultSet.getInt("term_num");
                    int salary = resultSet.getInt("salary");
                    boolean noble = resultSet.getBoolean("noble");
-                   int kingdomId = resultSet.getInt("kingdom_id");
+                   int regionId = resultSet.getInt("region_id");
 
                    // Create a new Consultant object
-                   consultant = new Consultant(consultantId, username, password, name, age, address, termNum, salary, noble, kingdomId);
+                   consultant = new Consultant(consultantId, username, password, name, age, address, termNum, salary, noble, regionId);
                }
            }
 

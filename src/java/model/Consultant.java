@@ -15,11 +15,11 @@ public class Consultant {
     private int termNum;
     private int salary;
     private boolean noble;
-    private int kingdomId;
+    private int regionId;
 
     public Consultant () {}
 
-    public Consultant(int id, String username, String password, String name, int age, String address, int termNum, int salary, boolean noble, int kingdomId) {
+    public Consultant(int id, String username, String password, String name, int age, String address, int termNum, int salary, boolean noble, int regionId) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -29,10 +29,10 @@ public class Consultant {
         this.termNum = termNum;
         this.salary = salary;
         this.noble = noble;
-        this.kingdomId = kingdomId;
+        this.regionId = regionId;
     }
 
-    public Consultant(String username, String password, String name, int age, String address, int termNum, int salary, boolean noble, int kingdomId) {
+    public Consultant(String username, String password, String name, int age, String address, int termNum, int salary, boolean noble, int regionId) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -41,7 +41,7 @@ public class Consultant {
         this.termNum = termNum;
         this.salary = salary;
         this.noble = noble;
-        this.kingdomId = kingdomId;
+        this.regionId = regionId;
     }
     
     public int getId () {
@@ -112,11 +112,11 @@ public class Consultant {
         this.noble = noble;
     }
 
-    public int getKingdomId () {
-        return kingdomId;
+    public int getRegionId () {
+        return regionId;
     }
 
     public void setKingdomId (int kingdomId) {
-        this.kingdomId = kingdomId;
+        this.regionId = kingdomId;
     }
 }

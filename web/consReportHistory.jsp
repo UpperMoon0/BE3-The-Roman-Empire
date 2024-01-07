@@ -1,5 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="model.Report"%>
+<%@page import="model.Reply"%>
 <%@page import="com.nhat.util.ViewUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,23 +21,23 @@
             <!-- Display List of Reports -->
             <div>
                 <h3>Your Reports</h3>
-                <select name="selectedReportId" size="5" onchange="submitForm()">
-                    <% 
-                        int consultantId = (int) session.getAttribute("id");
-                        ViewUtil.updateConsultantReportsList(request, consultantId);
+                <select name="selectedReportId" size="5" onchange="this.form.submit()">
+                <% 
+                    int consultantId = (int) session.getAttribute("id");
+                    ViewUtil.updateConsultantReportsList(request, consultantId);
 
-                        // Retrieve the list of reports from the request
-                        List<Report> consultantReports = (List<Report>) request.getAttribute("consultantReports");
+                    // Retrieve the list of reports from the request
+                    List<Report> consultantReports = (List<Report>) request.getAttribute("consultantReports");
 
-                        if (consultantReports != null) {
-                            for (Report report : consultantReports) {
-                    %>
-                                <option value="<%= report.getId() %>"><%= report.getWrittenDate().toString() %></option>
-                    <%
-                            }
+                    if (consultantReports != null) {
+                        for (Report report : consultantReports) {
+                %>
+                            <option value="<%= report.getId() %>"><%= report.getWrittenDate().toString() %></option>
+                <%
                         }
-                    %>
-                </select>
+                    }
+                %>
+            </select>
 
                 <!-- Hidden submit button -->
                 <input type="submit" id="submitBtn" style="display:none;">
@@ -49,7 +50,9 @@
             <%
                 // Retrieve the selected report from the request
                 Report selectedReport = (Report) request.getAttribute("selectedReport");
-                System.out.println("selectedReport" + selectedReport);
+                // Retrieve the reply for the selected report
+                Reply replyForReport = (Reply) request.getAttribute("replyForReport");
+
                 // Display the report details if a report is selected
                 if (selectedReport != null) {
             %>
@@ -61,6 +64,16 @@
                 <p>Revolt Rate: <%= selectedReport.getRevoltRate() %></p>
                 <p>Food Supply: <%= selectedReport.getFoodSupply() %></p>
                 <p>Description: <%= selectedReport.getDescription() %></p>
+
+                <!-- Display reply details if a reply exists for the selected report -->
+                <h3>Reply Details</h3>
+                <% if (replyForReport != null) { %>
+                    <p>Reply Written Date: <%= replyForReport.getWrittenDate() %></p>
+                    <p>Reply Delivered Date: <%= replyForReport.getDeliveredDate() %></p>
+                    <p>Reply Content: <%= replyForReport.getContent() %></p>
+                <% } else { %>
+                    <p>No reply for this report</p>
+                <% } %>
             <%
                 }
             %>

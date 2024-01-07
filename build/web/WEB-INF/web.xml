@@ -66,12 +66,12 @@
     </servlet-mapping>
     <!-- Servlet Configuration for ConsultantList -->
     <servlet>
-        <servlet-name>ConsultantList</servlet-name>
+        <servlet-name>EmpConsultantList</servlet-name>
         <servlet-class>com.nhat.controller.EmpConsultantListController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ConsultantList</servlet-name>
-        <url-pattern>/ConsultantList</url-pattern>
+        <servlet-name>EmpConsultantList</servlet-name>
+        <url-pattern>/EmpConsultantList</url-pattern>
     </servlet-mapping>
     <!-- Servlet Configuration for ConsReport -->
     <servlet>
@@ -126,5 +126,14 @@
     <servlet-mapping>
         <servlet-name>ConsReportHistory</servlet-name>
         <url-pattern>/ConsReportHistory</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ConsReportHistory -->
+    <servlet>
+        <servlet-name>EmpAddConsultant</servlet-name>
+        <servlet-class>com.nhat.controller.EmpAddConsultantController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpAddConsultant</servlet-name>
+        <url-pattern>/EmpAddConsultant</url-pattern>
     </servlet-mapping>
 </web-app>

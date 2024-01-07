@@ -11,8 +11,6 @@ public class Reply {
     private int emperorId;
     private int consultantId;
 
-    // Constructors, getters, and setters
-
     // Default constructor
     public Reply() {}
 
