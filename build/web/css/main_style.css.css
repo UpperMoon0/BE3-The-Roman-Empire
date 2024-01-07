@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 150px 1fr; /* 1fr represents the remaining width */
+    height: 100vh; /* 100% of the viewport height */
+}
+
+#leftArea {
+    background-color: #e0e0e0;
+    display: grid;
+    grid-template-rows: repeat(3, auto); /* 3 rows, each with auto height */
+    gap: 10px; /* Adjust the gap between buttons as needed */
+    align-items: center;
+    padding: 10px;
+}
+
+button {
+    width: 100%; /* Button width takes the full width of the left area */
+}
+
+#rightArea {
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}

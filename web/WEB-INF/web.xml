@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>Login</welcome-file>
+    </welcome-file-list>
+    <!-- Servlet Configuration for Login -->
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.nhat.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for Consultant -->
+    <servlet>
+        <servlet-name>ConsRequest</servlet-name>
+        <servlet-class>com.nhat.controller.ConsRequestController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsRequest</servlet-name>
+        <url-pattern>/ConsRequest</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for CreateReport -->
+    <servlet>
+        <servlet-name>CreateReport</servlet-name>
+        <servlet-class>com.nhat.controller.CreateReportController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateReport</servlet-name>
+        <url-pattern>/CreateReport</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ReportHistory -->
+    <servlet>
+        <servlet-name>ReportHistory</servlet-name>
+        <servlet-class>com.nhat.controller.ConsReportHistoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportHistory</servlet-name>
+        <url-pattern>/ReportHistory</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for EmpWorldRegionController -->
+    <servlet>
+        <servlet-name>RegionView</servlet-name>
+        <servlet-class>com.nhat.controller.RegionViewController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegionView</servlet-name>
+        <url-pattern>/RegionView</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for EmpWorldRequestController -->
+    <servlet>
+        <servlet-name>EmpRequest</servlet-name>
+        <servlet-class>com.nhat.controller.EmpWorldController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpRequest</servlet-name>
+        <url-pattern>/EmpRequest</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ConsultantList -->
+    <servlet>
+        <servlet-name>ConsultantList</servlet-name>
+        <servlet-class>com.nhat.controller.ConsultantListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsultantList</servlet-name>
+        <url-pattern>/ConsultantList</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ConsReport -->
+    <servlet>
+        <servlet-name>ConsReport</servlet-name>
+        <servlet-class>com.nhat.controller.ConsReportController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsReport</servlet-name>
+        <url-pattern>/ConsReport</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ConsReport -->
+    <servlet>
+        <servlet-name>EmpReport</servlet-name>
+        <servlet-class>com.nhat.controller.EmpReportController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpReport</servlet-name>
+        <url-pattern>/EmpReport</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for EmpMenu -->
+    <servlet>
+        <servlet-name>EmpMenu</servlet-name>
+        <servlet-class>com.nhat.controller.EmpMenuController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpMenu</servlet-name>
+        <url-pattern>/EmpMenu</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for EmpMenu -->
+    <servlet>
+        <servlet-name>EmpReply</servlet-name>
+        <servlet-class>com.nhat.controller.EmpReplyController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpReply</servlet-name>
+        <url-pattern>/EmpReply</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for EmpMenu -->
+    <servlet>
+        <servlet-name>ConsMenu</servlet-name>
+        <servlet-class>com.nhat.controller.ConsMenuController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsMenu</servlet-name>
+        <url-pattern>/ConsMenu</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet Configuration for ConsReportHistory -->
+    <servlet>
+        <servlet-name>ConsReportHistory</servlet-name>
+        <servlet-class>com.nhat.controller.ConsReportHistoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsReportHistory</servlet-name>
+        <url-pattern>/ConsReportHistory</url-pattern>
+    </servlet-mapping>
+</web-app>
