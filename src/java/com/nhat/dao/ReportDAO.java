@@ -161,4 +161,27 @@ public class ReportDAO {
 
        return reports;
    }
+   
+   /**
+    * Updates the delivered date of a report in the database.
+    *
+    * @param reportId       the ID of the report to update
+    * @param newDeliveredDate the new delivered date for the report
+    */
+   public void updateDeliveredDate(int reportId, java.sql.Date newDeliveredDate) {
+       try (Connection connection = DatabaseUtil.getConnection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE Report SET delivered_date = ? WHERE id = ?")) {
+
+           // Set parameters for the PreparedStatement
+           statement.setDate(1, newDeliveredDate);
+           statement.setInt(2, reportId);
+
+           // Execute the query to update the delivered date
+           statement.executeUpdate();
+
+       } catch (SQLException e) {
+           // Handle or log the SQLException
+           e.printStackTrace(); // You may want to log this instead of printing to console
+       }
+   }
 }

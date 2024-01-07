@@ -1,3 +1,7 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.nhat.dao.ReportDAO"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="com.nhat.dao.RequestDAO"%>
 <%@page import="com.nhat.dao.RegionDAO"%>
 <%@page import="com.nhat.dao.ConsultantDAO"%>
@@ -5,7 +9,6 @@
 <%@page import="com.nhat.util.ViewUtil"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Report"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,10 +49,20 @@
 
         <div id="selectedReportInfo">
             <%
-                // Retrieve the selected report from the request
                 Report selectedReport = (Report) request.getAttribute("selectedReport");
                 if (selectedReport != null) {
+                    // Update the delivered date to today if it is null
+                    if (selectedReport.getDeliveredDate() == null) {
+                        ReportDAO reportDAO = new ReportDAO();
+                        Date today = new Date();
+                        java.sql.Date sqlToday = new java.sql.Date(today.getTime());
+                        reportDAO.updateDeliveredDate(selectedReport.getId(), sqlToday);
+
+                        // Refresh the selected report to reflect the updated delivered date
+                        selectedReport.setDeliveredDate(sqlToday);
+                    }
             %>
+                    <!-- Display the selected report details with updated delivered date -->
                     <h3>Selected Report Info</h3>
                     <p>Written Date: <%= selectedReport.getWrittenDate() %></p>
                     <p>Delivered Date: <%= selectedReport.getDeliveredDate() %></p>

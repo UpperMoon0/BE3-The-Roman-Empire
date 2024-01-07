@@ -10,18 +10,16 @@ public class Emperor {
     private String username;
     private String password;
     private String name;
-    private int kingdom_id;
 
     // Create a no-argument constructor
     public Emperor() {}
 
     // Create a parameterized constructor
-    public Emperor(int id, String username, String password, String name, int kingdom_id) {
+    public Emperor(int id, String username, String password, String name) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.kingdom_id = kingdom_id;
     }
 
     // Create getters and setters for each field
@@ -55,13 +53,5 @@ public class Emperor {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getKingdom_id() {
-        return kingdom_id;
-    }
-
-    public void setKingdom_id(int kingdom_id) {
-        this.kingdom_id = kingdom_id;
     }
 }

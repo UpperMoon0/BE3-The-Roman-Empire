@@ -8,10 +8,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EmpAddConsultantController extends HttpServlet {
+
+    private static final Logger LOGGER = Logger.getLogger(EmpAddConsultantController.class.getName());
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            handleConsultantCreation(request, response);
+        } catch (IOException | ServletException e) {
+            LOGGER.log(Level.SEVERE, "Error processing consultant creation", e);
+        }
+
+        // Forward the request to the JSP page for displaying the list of consultants
+        request.getRequestDispatcher("empConsultantList.jsp").forward(request, response);
+    }
+
+    /**
+     * Handles the creation of a new consultant.
+     *
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @throws IOException      if an I/O error occurs
+     * @throws ServletException if a servlet-specific error occurs
+     */
+    private void handleConsultantCreation(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // Extract form parameters for creating a new consultant
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -27,10 +51,7 @@ public class EmpAddConsultantController extends HttpServlet {
         Consultant newConsultant = new Consultant(username, password, name, age, address, termNum, salary, noble, regionId);
 
         // Insert the new consultant into the database
-        ConsultantDAO cDao = new ConsultantDAO();
-        cDao.insertConsultant(newConsultant);
-
-        // Forward the request to the JSP page for displaying the list of consultants
-        request.getRequestDispatcher("empConsultantList.jsp").forward(request, response);
+        ConsultantDAO consultantDAO = new ConsultantDAO();
+        consultantDAO.insertConsultant(newConsultant);
     }
 }

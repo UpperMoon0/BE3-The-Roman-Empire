@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nhat.controller;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,31 +10,67 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author Nhat
+ * Controller class for handling consultant menu actions.
  */
 public class ConsMenuController extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String buttonClicked = request.getParameter("buttonClicked");
 
-        if ("world".equals(buttonClicked)) {
-            // Handle "World" button click
-            response.sendRedirect("consWorld.jsp"); // Replace with the actual page
-        } else if ("viewRequest".equals(buttonClicked)) {
-            // Handle "View reports" button click
-            response.sendRedirect("consRequestAndReport.jsp"); // Replace with the actual page
-        } else if ("reportHistory".equals(buttonClicked)) {
-            // Handle "My consultants" button click
-            response.sendRedirect("consReportHistory.jsp"); // Replace with the actual page
-        } else if ("logout".equals(buttonClicked)) {
-            // Handle "Logout" button click
-            // Invalidate the session and redirect to the login page
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                session.invalidate();
+    private static final Logger LOGGER = Logger.getLogger(ConsMenuController.class.getName());
+
+    /**
+     * Handles HTTP GET requests.
+     *
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            String buttonClicked = request.getParameter("buttonClicked");
+
+            if ("world".equals(buttonClicked)) {
+                redirectToPage(response, "consWorld.jsp");
+            } else if ("viewRequest".equals(buttonClicked)) {
+                redirectToPage(response, "consRequestAndReport.jsp");
+            } else if ("reportHistory".equals(buttonClicked)) {
+                redirectToPage(response, "consReportHistory.jsp");
+            } else if ("logout".equals(buttonClicked)) {
+                handleLogout(request, response);
+            } else {
+                // Handle unrecognized button click
+                LOGGER.warning("Unrecognized button click: " + buttonClicked);
             }
-            response.sendRedirect("login.jsp");
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error processing request", e);
         }
+    }
+
+    /**
+     * Redirects the response to the specified page.
+     *
+     * @param response the HttpServletResponse object
+     * @param page     the page to redirect to
+     * @throws IOException if an I/O error occurs during redirection
+     */
+    private void redirectToPage(HttpServletResponse response, String page) throws IOException {
+        response.sendRedirect(page);
+    }
+
+    /**
+     * Handles the logout action.
+     *
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @throws IOException if an I/O error occurs during redirection
+     */
+    private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Invalidate the session and redirect to the login page
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect("login.jsp");
     }
 }

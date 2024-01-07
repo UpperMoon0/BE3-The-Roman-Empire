@@ -1,7 +1,9 @@
+<%@page import="com.nhat.dao.ReplyDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Report"%>
 <%@page import="model.Reply"%>
 <%@page import="com.nhat.util.ViewUtil"%>
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -67,16 +69,27 @@
 
                 <!-- Display reply details if a reply exists for the selected report -->
                 <h3>Reply Details</h3>
-                <% if (replyForReport != null) { %>
-                    <p>Reply Written Date: <%= replyForReport.getWrittenDate() %></p>
-                    <p>Reply Delivered Date: <%= replyForReport.getDeliveredDate() %></p>
-                    <p>Reply Content: <%= replyForReport.getContent() %></p>
-                <% } else { %>
-                    <p>No reply for this report</p>
-                <% } %>
-            <%
-                }
-            %>
+                    <% 
+                        if (replyForReport != null) {
+                            // Check if deliveredDate is null, and if it is, set it to the current date
+                            if (replyForReport.getDeliveredDate() == null) {
+                                // Update deliveredDate using the DAO method
+                                ReplyDAO replyDAO = new ReplyDAO();
+                                replyDAO.updateDeliveredDate(replyForReport.getId(), new java.sql.Date(System.currentTimeMillis()));
+
+                                // Refresh the replyForReport object to reflect the updated deliveredDate
+                                replyForReport = replyDAO.getReplyById(replyForReport.getId());
+                            }
+                    %>
+                        <p>Reply Written Date: <%= replyForReport.getWrittenDate() %></p>
+                        <p>Reply Delivered Date: <%= replyForReport.getDeliveredDate() %></p>
+                        <p>Reply Content: <%= replyForReport.getContent() %></p>
+                    <% } else { %>
+                        <p>No reply for this report</p>
+                    <% } %>
+                <%
+                    }
+                %>
         </div>
     </div>
 </body>

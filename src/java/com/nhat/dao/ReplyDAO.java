@@ -119,4 +119,21 @@ public class ReplyDAO {
 
         return null; // Return null if no reply found with the given Report ID
     }
+    
+    // Method to update the deliveredDate of a reply
+    public void updateDeliveredDate(int replyId, Date newDeliveredDate) {
+        String query = "UPDATE reply SET delivered_date = ? WHERE id = ?";
+
+        try (
+            Connection connection = DatabaseUtil.getConnection();
+            PreparedStatement statement = connection.prepareStatement(query)
+        ) {
+            statement.setDate(1, newDeliveredDate);
+            statement.setInt(2, replyId);
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            handleSQLException(ex, "Error updating deliveredDate of reply");
+        }
+    }
 }
