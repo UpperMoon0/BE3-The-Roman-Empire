@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : Jan 4, 2024, 7:15:53 PM
-    Author     : Nhat
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

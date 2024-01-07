@@ -67,7 +67,7 @@
     <!-- Servlet Configuration for ConsultantList -->
     <servlet>
         <servlet-name>ConsultantList</servlet-name>
-        <servlet-class>com.nhat.controller.ConsultantListController</servlet-class>
+        <servlet-class>com.nhat.controller.EmpConsultantListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConsultantList</servlet-name>

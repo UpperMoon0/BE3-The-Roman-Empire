@@ -9,7 +9,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Emperor Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/main_style.css.css">
+    <link rel="stylesheet" type="text/css" href="css/main_style.css">
 </head>
 <body>
     <div id="leftArea">

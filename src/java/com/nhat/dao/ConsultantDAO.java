@@ -148,4 +148,43 @@ public class ConsultantDAO {
 
        return consultantId;
    }
+   
+   /**
+    * Retrieves a consultant based on the given ID.
+    *
+    * @param consultantId the ID of the consultant
+    * @return the Consultant object if found, or null if not found
+    */
+   public Consultant getConsultantById(int consultantId) {
+       Consultant consultant = null;
+
+       try (Connection connection = DatabaseUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Consultant WHERE id = ?")) {
+
+           preparedStatement.setInt(1, consultantId);
+
+           try (ResultSet resultSet = preparedStatement.executeQuery()) {
+               if (resultSet.next()) {
+                   String username = resultSet.getString("username");
+                   String password = resultSet.getString("password");
+                   String name = resultSet.getString("name");
+                   int age = resultSet.getInt("age");
+                   String address = resultSet.getString("address");
+                   int termNum = resultSet.getInt("term_num");
+                   int salary = resultSet.getInt("salary");
+                   boolean noble = resultSet.getBoolean("noble");
+                   int kingdomId = resultSet.getInt("kingdom_id");
+
+                   // Create a new Consultant object
+                   consultant = new Consultant(consultantId, username, password, name, age, address, termNum, salary, noble, kingdomId);
+               }
+           }
+
+       } catch (SQLException e) {
+           // If any exception occurs, print the stack trace
+           e.printStackTrace();
+       }
+
+       return consultant;
+   }
 }

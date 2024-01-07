@@ -1,3 +1,6 @@
+<%@page import="com.nhat.dao.RequestDAO"%>
+<%@page import="com.nhat.dao.RegionDAO"%>
+<%@page import="com.nhat.dao.ConsultantDAO"%>
 <%@page import="model.Reply"%> <!-- Import the Reply model -->
 <%@page import="com.nhat.util.ViewUtil"%>
 <%@page import="java.util.List"%>
@@ -8,7 +11,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Emperor Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/main_style.css.css">
+    <link rel="stylesheet" type="text/css" href="css/main_style.css">
 </head>
 <body>
     <div id="leftArea">
@@ -26,12 +29,14 @@
                     List<Report> reports = (List<Report>) request.getAttribute("reports");
 
                     if (reports != null) {
+                        ConsultantDAO cDAO = new ConsultantDAO();
+                        RequestDAO rDAO = new RequestDAO();
                         int displayCount = Math.min(5, reports.size()); // Display maximum 5 reports
 
                         for (int i = 0; i < displayCount; i++) {
                             Report report = reports.get(i);
                 %>
-                            <option value="<%= report.getId() %>"><%= report.getDescription() %></option>
+                <option value="<%= report.getId() %>"><%= "Report by " + cDAO.getConsultantById(report.getConsultantId()).getName() %></option>
                 <%
                         }
                     }

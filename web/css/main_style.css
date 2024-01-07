@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 150px 1fr; /* 1fr represents the remaining width */
+    grid-template-columns: 200px 1fr; /* 1fr represents the remaining width */
     height: 100vh; /* 100% of the viewport height */
 }
 

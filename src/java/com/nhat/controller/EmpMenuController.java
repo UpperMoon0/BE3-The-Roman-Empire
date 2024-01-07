@@ -20,7 +20,7 @@ public class EmpMenuController extends HttpServlet {
             response.sendRedirect("empReportAndReply.jsp"); // Replace with the actual page
         } else if ("consultant".equals(buttonClicked)) {
             // Handle "My consultants" button click
-            response.sendRedirect("consultantList.jsp"); // Replace with the actual page
+            response.sendRedirect("empConsultantList.jsp"); // Replace with the actual page
         } else if ("logout".equals(buttonClicked)) {
             // Handle "Logout" button click
             // Invalidate the session and redirect to the login page

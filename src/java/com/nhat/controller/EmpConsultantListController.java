@@ -11,15 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ConsultantListController extends HttpServlet {
-    private final ConsultantDAO consultantDAO = new ConsultantDAO();
-
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   
-        RequestDispatcher rd = request.getRequestDispatcher("consultantList.jsp");
-        rd.forward(request, response);
-    }
-
+public class EmpConsultantListController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Extract form parameters
@@ -37,12 +29,13 @@ public class ConsultantListController extends HttpServlet {
         Consultant newConsultant = new Consultant(username, password, name, age, address, termNum, salary, noble, kingdomId);
         
         // Insert the new consultant into the database
-        consultantDAO.insertConsultant(newConsultant);
+        ConsultantDAO cDao = new ConsultantDAO();
+        cDao.insertConsultant(newConsultant);
         // Update the list of consultants in the request
         ViewUtil.updateConsultantsList(request);
 
         // Forward the request to the JSP page
-        RequestDispatcher rd = request.getRequestDispatcher("consultantList.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("empConsultantList.jsp");
         rd.forward(request, response);
     }
 }
