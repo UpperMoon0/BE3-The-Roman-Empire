@@ -9,7 +9,6 @@ import com.nhat.dao.RequestDAO;
 import model.Request;
 
 public class ConsRequestController extends HttpServlet {
-
     private static final Logger LOGGER = Logger.getLogger(ConsRequestController.class.getName());
 
     @Override

@@ -3,45 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/EmpWorldController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/RegionDAO.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/empReportAndReply.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/regionView.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/LoginController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/util/DatabaseUtil.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Reply.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/ConsReportHistoryController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/index.html</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/css/main_style.css.css</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/empLeftArea.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/EmpReplyController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/ConsultantListController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/consWorld.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/EmperorDAO.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/empWorld.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Region.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/RequestDAO.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/ConsReportController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/consReportHistory.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/RegionViewController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/util/ViewUtil.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/consLeftArea.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/consultantList.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/EmpReportController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/EmpMenuController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/login.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Consultant.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Emperor.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/ConsMenuController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/controller/ConsRequestController.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/ReportDAO.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/ReplyDAO.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/META-INF/context.xml</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Request.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/model/Report.java</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/web/consRequestAndReport.jsp</file>
-            <file>file:/D:/Dev/Workspace/Java/BE3/src/java/com/nhat/dao/ConsultantDAO.java</file>
+            <file>file:/D:/Dev/Workspace/Java/BE3-The-Roman-Empire/src/java/com/nhat/controller/LoginController.java</file>
+            <file>file:/D:/Dev/Workspace/Java/BE3-The-Roman-Empire/web/login.jsp</file>
+            <file>file:/D:/Dev/Workspace/Java/BE3-The-Roman-Empire/src/java/com/nhat/util/DatabaseUtil.java</file>
         </group>
     </open-files>
 </project-private>

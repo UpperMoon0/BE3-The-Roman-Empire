@@ -19,7 +19,7 @@ public class ConsReportHistoryController extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(ConsReportHistoryController.class.getName());
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
         try {
             handleReportHistoryRequest(request, response);
         } catch (IOException | ServletException e) {

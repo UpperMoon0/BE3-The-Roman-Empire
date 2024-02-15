@@ -32,6 +32,7 @@ public class ConsReportController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         // Forward to the JSP for initial rendering
         RequestDispatcher rd = request.getRequestDispatcher("consRequestAndReport.jsp");
         rd.forward(request, response);
@@ -48,6 +49,7 @@ public class ConsReportController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         try {
             handleReportSubmission(request, response);
         } catch (IOException e) {
